@@ -14,8 +14,8 @@ class WebViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var viewContent: WKWebView!
     @IBOutlet weak var sectionTitle: UILabel!
     
-    var localFile = ""
-    var section = ""
+    @objc var localFile = ""
+    @objc var section = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +31,13 @@ class WebViewController: UIViewController, WKUIDelegate {
     
     //MARK: WebView Delegate Methods
     
-    func webViewDidStartLoad(_ webView: WKWebView) {
+    @objc func webViewDidStartLoad(_ webView: WKWebView) {
     }
     
-    func webViewDidFinishLoad(_ webView: WKWebView) {
+    @objc func webViewDidFinishLoad(_ webView: WKWebView) {
     }
     
-    func webView(_ webView: WKWebView, didFailLoadWithError error: Error) {
+    @objc func webView(_ webView: WKWebView, didFailLoadWithError error: Error) {
     }
     
     @IBAction func actionBack(_ sender: AnyObject) {

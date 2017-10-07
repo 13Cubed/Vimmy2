@@ -24,21 +24,21 @@ class ViewController: UIViewController {
     
     //MARK: UITableViewDataSource
     
-    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
+    @objc func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    @objc func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         configureCell(cell, forRowAtIndexPath: indexPath)
         return cell
     }
     
-    func configureCell(_ cell: UITableViewCell, forRowAtIndexPath: IndexPath) {
+    @objc func configureCell(_ cell: UITableViewCell, forRowAtIndexPath: IndexPath) {
         switch forRowAtIndexPath.row {
         case 0:
             cell.textLabel?.text = "Moving Around"
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     
     //MARK: UITableViewDelegate
     
-    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+    @objc func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         let webViewObj = self.storyboard?.instantiateViewController(withIdentifier: "WebViewControllerID") as! WebViewController
         
         switch indexPath.row {
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(webViewObj, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
+    @objc func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
         return 44
     }
     
